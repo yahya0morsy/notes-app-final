@@ -5,7 +5,7 @@ function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
      async function Addnote(){
-            await axios.post('https://yahya0morsy.github.io/note-front/notes/save', {
+            await axios.post('https://note-back-nine.vercel.app/notes/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value
             }, { withCredentials: true })
@@ -18,7 +18,7 @@ function Notes(){
             })
     }
     function show(){ 
-        axios.get("https://yahya0morsy.github.io/note-front/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
+        axios.get("https://note-back-nine.vercel.app/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
 
   } 
     function sure(x){
