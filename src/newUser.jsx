@@ -8,7 +8,7 @@ function SignNew(){
   const [x ,setx] =useState()
 
   async function submit(){
-    await axios.post('http://localhost:8000/log', {
+    await axios.post('https://yahya0morsy.github.io/note-front/log', {
       Username:document.getElementById("user").value,
       Password:document.getElementById("pass").value
     }, { withCredentials: true })

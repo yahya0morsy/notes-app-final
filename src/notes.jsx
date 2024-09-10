@@ -5,7 +5,7 @@ function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
      async function Addnote(){
-            await axios.post('http://localhost:8000/notes/save', {
+            await axios.post('https://yahya0morsy.github.io/note-front/notes/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value
             }, { withCredentials: true })
@@ -18,7 +18,7 @@ function Notes(){
             })
     }
     function show(){ 
-        axios.get("http://localhost:8000/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
+        axios.get("https://yahya0morsy.github.io/note-front/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
 
   } 
     function sure(x){
@@ -29,7 +29,7 @@ function Notes(){
 
     }
    function deleteNote(){
-        axios.post('http://localhost:8000/notes/delete',{
+        axios.post('https://yahya0morsy.github.io/note-front/delete',{
             title:del 
           }, { withCredentials: true })
           .then(function (response) {
