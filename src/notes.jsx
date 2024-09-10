@@ -5,7 +5,7 @@ function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
      async function Addnote(){
-            await axios.post('https://note-back-nine.vercel.app/notes/save', {
+            await axios.post('https://note-back-nine.vercel.app/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value
             }, { withCredentials: true })
@@ -29,7 +29,7 @@ function Notes(){
 
     }
    function deleteNote(){
-        axios.post('https://yahya0morsy.github.io/note-front/delete',{
+        axios.post('https://note-back-nine.vercel.app/delete',{
             title:del 
           }, { withCredentials: true })
           .then(function (response) {

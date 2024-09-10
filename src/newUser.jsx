@@ -8,7 +8,7 @@ function SignNew(){
   const [x ,setx] =useState()
 
   async function submit(){
-    await axios.post('https://note-back-nine.vercel.app/note-front/log', {
+    await axios.post('https://note-back-nine.vercel.app/log', {
       Username:document.getElementById("user").value,
       Password:document.getElementById("pass").value
     }, { withCredentials: true })
