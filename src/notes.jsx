@@ -5,7 +5,7 @@ function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
      async function Addnote(){
-            await axios.post('https://note-back-nine.vercel.app/notes/save', {
+            await axios.post('/notes/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value
             }, { withCredentials: true })
@@ -18,9 +18,10 @@ function Notes(){
             })
     }
     function show(){ 
-        axios.get("https://note-back-nine.vercel.app/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
+        axios.get("/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
 
   } 
+  //https://note-back-nine.vercel.app
     function sure(x){
         document.getElementById("sure").textContent = "are you sure you want to delete this?"
         document.getElementById("yes").textContent = "yes" 
@@ -29,7 +30,7 @@ function Notes(){
 
     }
    function deleteNote(){
-        axios.post('https://note-back-nine.vercel.app/notes/delete',{
+        axios.post('/notes/delete',{
             title:del 
           }, { withCredentials: true })
           .then(function (response) {
