@@ -1,8 +1,8 @@
 {
+  "homepage": "https://github.com/yahya0morsy/note-front.git",
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
-  "proxy":"https://note-back-nine.vercel.app",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

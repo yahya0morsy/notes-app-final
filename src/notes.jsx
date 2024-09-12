@@ -5,7 +5,7 @@ function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
      async function Addnote(){
-            await axios.post('/notes/save', {
+            await axios.post('http://localhost:8000/notes/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value
             }, { withCredentials: true })
@@ -18,7 +18,9 @@ function Notes(){
             })
     }
     function show(){ 
-        axios.get("/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)})
+        axios.get("http://localhost:8000/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,console.log(res.data)}).catch(function (error) {
+          console.log(error)
+        })
 
   } 
   //https://note-back-nine.vercel.app
@@ -30,7 +32,7 @@ function Notes(){
 
     }
    function deleteNote(){
-        axios.post('/notes/delete',{
+        axios.post('http://localhost:8000/notes/delete',{
             title:del 
           }, { withCredentials: true })
           .then(function (response) {
@@ -74,10 +76,10 @@ function Notes(){
             <div className='flex flex-row flex-wrap'>
            {z.map(function(item ,index){
             return(
-                <div className="flex flex-col w-fit bg-yellow-200 border-2 border-black items-start mx-2 my-2" key={index}>
-                <div className="text-base font-semibold">{item.title}</div>
-                <div className='text-2xl'>{item.data}</div>
-                <button className='w-fit h-fit mx-1 my-1  hover:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black text-sm bg-white' onClick={()=>sure(item.title)}>delete</button>
+                <div className="flex flex-col relative w-60 h-36 overflow-scroll bg-yellow-200 border-2 border-black items-start mx-2 my-2" key={index}>
+                <div className="text-base font-semibold mx-2">{item.title}</div>
+                <div className='text-2xl mx-2'>{item.data}</div>
+                <button className=' top-0 right-1 absolute overflow-visible hover:shadow-md hover:shadow-slate-950 hover:bg-white text-md' onClick={()=>sure(item.title)}>X</button>
                 </div>
 
       )
