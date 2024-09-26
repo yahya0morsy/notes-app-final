@@ -14,10 +14,11 @@ function Showing(){
          document.getElementById("terminal").textContent = mess
     }
     async function Editnote(){
-        await axios.patch('http://localhost:8000/notes/edit', {
+        await axios.patch('https://note-back-mode2-teri.vercel.app/notes/edit', {
           title:location.state.title,
           Ntitle:document.getElementById("title").textContent,
-          data:document.getElementById("text").textContent
+          data:document.getElementById("text").textContent,
+          id:localStorage.getItem("id")
         }, { withCredentials: true })
         .then(function (response) {
          console.log(response.data)
@@ -35,8 +36,9 @@ function Showing(){
         setd(x)
     }
     function deleteNote(){
-        axios.post('http://localhost:8000/notes/delete',{
-            title:del 
+        axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
+            title:del ,
+            id:localStorage.getItem("id")
           }, { withCredentials: true })
           .then(function (response) {
           

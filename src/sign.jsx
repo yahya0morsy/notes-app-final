@@ -8,14 +8,15 @@ function Sign(){
   const [y ,sety] =useState()
 
   async function submit(){
-    await axios.post('http://localhost:8000/log/auth', {
-      username:document.getElementById("user").value,
-      password:document.getElementById("pass").value
-    }, { withCredentials: true })
+    await axios.post('https://note-back-mode2-teri.vercel.app/log/auth', {
+      Username:document.getElementById("user").value,
+      Password:document.getElementById("pass").value
+    })
     .then(function (response) {
-      if(response.data=="logged in"){navigate('/try', { replace: true })};console.log('logged in');
+      if(response.data.Message=="logged in"){navigate('/try', { replace: true })};console.log(response.data);
       sety(response.data)
-      
+      localStorage.setItem("id", response.data.id);
+      console.log(localStorage)
     })
     .catch(function (error) {
       console.log(error)

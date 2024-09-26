@@ -23,10 +23,11 @@ function Notes(){
 
     
      async function Addnote(){
-            await axios.post('http://localhost:8000/notes/save', {
+            await axios.post('https://note-back-mode2-teri.vercel.app/notes/save', {
               title:document.getElementById("title").value,
-              data:document.getElementById("text").value
-            }, { withCredentials: true })
+              data:document.getElementById("text").value,
+              id:localStorage.getItem("id")
+            })
             .then(function (response) {
              //console.log(response.data)
              terminal(response.data)
@@ -38,8 +39,8 @@ function Notes(){
             }).finally(()=>show())
     }
     async function show(){ 
-        await axios.get("http://localhost:8000/notes/show", { withCredentials: true }).then(function(res){ setz(res.data) ,
-          //console.log(res.data)
+        await axios.post("https://note-back-mode2-teri.vercel.app/notes/show",{id:localStorage.getItem("id") }).then(function(res){ setz(res.data) ,
+          console.log(localStorage.getItem("id"))
           document.getElementById("user").textContent=res.data[0].owner}).catch(function (error) {
           console.log(error)
           terminal(error.response.data)
@@ -57,9 +58,10 @@ function Notes(){
 
     }
    function deleteNote(){
-        axios.post('http://localhost:8000/notes/delete',{
-            title:del 
-          }, { withCredentials: true })
+        axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
+            title:del ,
+            id:localStorage.getItem("id")
+          })
           .then(function (response) {
            //console.log(response.data)
            terminal(response.data)

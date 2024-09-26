@@ -15,11 +15,12 @@ function SignNew(){
     if(password.value.length <6){
       document.getElementById("state").textContent = "password should be more than 5 characters";
     }
-   else{ await axios.post('http://localhost:8000/log', {
+   else{ await axios.post('https://note-back-zeta.vercel.app/log', {
       Username:username.value,
       DisplayedName:displayedname.value,
       Password:password.value
-    }, { withCredentials: true })
+      
+    })
     .then(function (response) {
       console.log(response.data),
       setx(response.data)

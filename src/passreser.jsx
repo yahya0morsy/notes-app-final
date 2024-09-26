@@ -20,10 +20,11 @@ function Passreset(){
         }
     else{
             
-            await axios.patch('http://localhost:8000/notes/user/changepass', {
+            await axios.patch('https://note-back-mode2-teri.vercel.app/notes/user/changepass', {
                 currentPassword:currentpass.value,
-                newPassword:newpass2.value
-              }, { withCredentials: true })
+                newPassword:newpass2.value,
+                id:localStorage.getItem("id")
+              })
               .then(function (response) {
                console.log(response.data)
                terminal(response.data)

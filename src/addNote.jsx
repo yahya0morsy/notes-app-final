@@ -10,9 +10,10 @@ function Adddata(){
 
   
   async function Addnote(){
-    await axios.post('http://localhost:8000/notes/save', {
+    await axios.post('https://note-back-mode2-teri.vercel.app/notes/save', {
       title:document.getElementById("title").value,
-      data:document.getElementById("text").value
+      data:document.getElementById("text").value,
+      id:localStorage.getItem("id")
     }, { withCredentials: true })
     .then(function (response) {
     // console.log(response.data)
