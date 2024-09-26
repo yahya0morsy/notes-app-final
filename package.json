@@ -1,7 +1,7 @@
 {
-  "homepage": "https://yahya0morsy.github.io/notes-app-finally/",
+  "homepage": "https://github.com/yahya0morsy/notes-app-finally.git",
   "name": "vite-project",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
