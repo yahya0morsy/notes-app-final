@@ -14,7 +14,7 @@ function Adddata(){
       title:document.getElementById("title").value,
       data:document.getElementById("text").value,
       id:localStorage.getItem("id")
-    }, { withCredentials: true })
+    })
     .then(function (response) {
     // console.log(response.data)
      if(response.data=="note saved")

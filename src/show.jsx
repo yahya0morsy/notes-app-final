@@ -19,7 +19,7 @@ function Showing(){
           Ntitle:document.getElementById("title").textContent,
           data:document.getElementById("text").textContent,
           id:localStorage.getItem("id")
-        }, { withCredentials: true })
+        })
         .then(function (response) {
          console.log(response.data)
          terminal(response.data)
@@ -39,7 +39,7 @@ function Showing(){
         axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
             title:del ,
             id:localStorage.getItem("id")
-          }, { withCredentials: true })
+          })
           .then(function (response) {
           
            terminal(response.data)
