@@ -47,8 +47,8 @@ function Sign(){
     <div className="min-h-screen min-w-screen bg-slate-800 flex flex-col justify-center">
 
         <div className=" bg-gray-500 place-self-center sign flex flex-col place-items-start border-4 border-black">
-        <div className="sm:text-lg md:text-xl lg:text-2xl my-2 mx-2">username: <input type="text" className="h-10 w-48 border-2 border-black rounded-md" id="user"></input></div>
-        <div className="sm:text-lg md:text-xl lg:text-2xl my-2 mx-2">password: <input type="password" className="h-10 w-48 border-2 border-black rounded-md" id="Mypassword"></input><input className="size-4 mx-1" type="checkbox" onChange={()=>hider()}/></div>
+        <div className="sm:text-lg md:text-xl lg:text-2xl my-2 mx-2">username: <input type="text" className="h-8 w-40 lg:h-10 lg:w-48 border-2 border-black rounded-md" id="user"></input></div>
+        <div className="sm:text-lg md:text-xl lg:text-2xl my-2 mx-2">password: <input type="password" className="h-8 w-40 lg:h-10 lg:w-48 border-2 border-black rounded-md" id="Mypassword"></input><input className="size-4 mx-1" type="checkbox" onChange={()=>hider()}/></div>
         
         <div className="flex flex-row ">
         <button className="w-20 h-8 mx-2 bg-white rounded-md hover:bg-blue-500 hover:shadow-md hover:shadow-black duration-150" onClick={()=>submit()}>submit</button>
