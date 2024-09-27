@@ -19,13 +19,13 @@
   @media screen and (max-width: 700px) {
     .sign{
     
-        width: 250px;
-        height: 350px;
+        width: 300px;
+        height: 400px;
     }
     .profile{
     
         background-color: white;
-        width: 250px;
-        height: 350px;
+        width: 300px;
+        height: 400px;
     }
   }

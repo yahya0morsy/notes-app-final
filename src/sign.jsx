@@ -16,7 +16,8 @@ function Sign(){
       if(response.data.Message=="logged in"){navigate('/try', { replace: true })};console.log(response.data);
       sety(response.data)
       localStorage.setItem("id", response.data.id);
-      console.log(localStorage)
+      //console.log(localStorage)
+      if(response.data.Message!=="logged in"){passt()}
     })
     .catch(function (error) {
       console.log(error)

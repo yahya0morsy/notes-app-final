@@ -25,6 +25,7 @@ function SignNew(){
       console.log(response.data),
       setx(response.data)
       checker(response.data)
+      if(response.data=="user is added"){navigate('/', { replace: true })}
       
     })
     .catch(function (error) {

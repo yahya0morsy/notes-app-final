@@ -91,11 +91,12 @@ function Notes(){
     return(
         <div className="min-h-screen min-w-screen relative bg-slate-800 flex flex-col">
 
+           
           <div className='text-base absolute top-2 right-5 place-items-center flex flex-col z-10 text-white' ><p className='' id='user'> </p><Circle/></div>
            
           <div className='flex flex-row relative justify-start place-items-end'>
 
-            <div className='mx-10 my-5 flex flex-col'>
+            <div className='mx-2 my-5 flex flex-col'>
 
               <div className='flex flex-row relative'>
 
@@ -117,7 +118,7 @@ function Notes(){
 
               </div>
             </div>
-            <div className='my-5 hidden' id='ask'>
+            <div className='my-5 mx-2 hidden' id='ask'>
               <div className='bg-white rounded-lg p-2 text-xs md:text-base lg:text-base' id='sure'></div>
               <button id='yes' className='bg-white border-2 p-1 border-black h-fit w-fit my-2 mx-2 rounded-lg hover:bg-slate-500  text-xs md:text-base lg:text-base' onClick={()=>deleteNote()}></button>
               <button id='No' className='bg-white border-2 p-1 border-black h-fit w-fit rounded-lg my-2 hover:bg-slate-500  text-xs md:text-base lg:text-base' onClick={()=>redo()}></button>
@@ -131,7 +132,7 @@ function Notes(){
             <div className='flex flex-row flex-wrap'>
            {z.map(function(item ,index){
             return(
-                <div className="flex flex-col relative w-52 h-32 lg:w-60 lg:h-36 overflow-hidden bg-slate-600 hover:bg-slate-400 hover:cursor-pointer  text-white border-4 rounded-lg border-black items-start mx-2 my-2" key={index}  >
+                <div className="flex flex-col relative w-44 h-28 lg:w-60 lg:h-36 overflow-hidden bg-slate-600 hover:bg-slate-400 hover:cursor-pointer  text-white border-4 rounded-lg border-black items-start mx-2 my-2" key={index}  >
                 <div onClick={()=>passing(item)}>
                 <div className="text-sm md:text-base lg:text-lg font-semibold mx-2 whitespace-pre">{item.title}</div>
                 <div className='text-base md:text-lg lg:text-xl mx-2 whitespace-pre'>{item.data}</div>
