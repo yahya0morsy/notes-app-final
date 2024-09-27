@@ -15,7 +15,7 @@ function SignNew(){
     if(password.value.length <6){
       document.getElementById("state").textContent = "password should be more than 5 characters";
     }
-   else{ await axios.post('https://note-back-zeta.vercel.app/log', {
+   else{ await axios.post('https://note-back-mode2-teri.vercel.app/log', {
       Username:username.value,
       DisplayedName:displayedname.value,
       Password:password.value
