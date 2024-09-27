@@ -36,7 +36,7 @@ function Sign(){
   return(
     <div className="min-h-screen min-w-screen bg-slate-800 flex flex-col justify-center">
 
-        <div className="sign bg-gray-500 place-self-center  flex flex-col place-items-start border-4 border-black">
+        <div className=" bg-gray-500 place-self-center sign flex flex-col place-items-start border-4 border-black">
         <div className="sm:text-lg md:text-xl lg:text-2xl my-2 mx-2">username: <input type="text" className="h-10 w-48 border-2 border-black rounded-md" id="user"></input></div>
         <div className="sm:text-lg md:text-xl lg:text-2xl my-2 mx-2">password: <input type="text" className="h-10 w-48 border-2 border-black rounded-md" id="pass"></input></div>
         <div className="flex flex-row ">
