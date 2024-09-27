@@ -44,8 +44,8 @@ function SignNew(){
     document.getElementById("state").textContent = "username exist";
     }
   return(
-    <div className="min-h-screen min-w-screen bg-gradient-to-r from-amber-800 to-amber-950 flex flex-col justify-center">
-
+    <div className="min-h-screen min-w-screen relative bg-gradient-to-r from-amber-800 to-amber-950 flex flex-col justify-center">
+         <button className="text-3xl absolute top-2 left-4 hover:shadow-md hover:shadow-white hover:-translate-x-2" onClick={()=>navigate('/')}>⬅️</button>
         <div className="sign bg-gray-500 place-self-center  flex flex-col place-items-start shadow-lg shadow-white">
           <div className="sm:text-lg md:text-xl lg:text-2xl  mx-2 flex flex-col">username: <input type="text" className="h-10 w-48 border-2 border-black rounded-md" id="user"></input></div>
           <div className="sm:text-lg md:text-xl lg:text-2xl  mx-2 flex flex-col">name: <input type="text" className="h-10 w-48 border-2 border-black rounded-md" id="disName"></input></div>
