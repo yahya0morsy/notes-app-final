@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Showing from './show';
 import Circle from './circle.jsx'
-import Cookies from 'js-cookie';
+
 function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
