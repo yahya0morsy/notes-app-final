@@ -132,7 +132,7 @@ function Notes(){
             <div className='flex flex-row flex-wrap'>
            {z.map(function(item ,index){
             return(
-                <div className="flex flex-col relative w-44 h-28 lg:w-60 lg:h-36 overflow-hidden bg-slate-600 hover:bg-slate-400 hover:cursor-pointer  text-white border-4 rounded-lg border-black items-start mx-2 my-2" key={index}  >
+                <div className="flex flex-col relative w-40 h-24 md:w-52 md:h-32 lg:w-60 lg:h-36 overflow-hidden bg-slate-600 hover:bg-slate-400 hover:cursor-pointer  text-white border-4 rounded-lg border-black items-start mx-2 my-2" key={index}  >
                 <div onClick={()=>passing(item)}>
                 <div className="text-sm md:text-base lg:text-lg font-semibold mx-2 whitespace-pre">{item.title}</div>
                 <div className='text-base md:text-lg lg:text-xl mx-2 whitespace-pre'>{item.data}</div>
