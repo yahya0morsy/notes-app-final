@@ -33,7 +33,7 @@ function terminal(mess){
     return(
         <div className="min-h-screen min-w-screen relative bg-slate-800 flex flex-col justify-center place-items-center">
             <div id="terminal" className="absolute top-5 text-base p-2 rounded-lg hidden bg-white"></div>
-            <div className="bg-white border-2 relative border-black rounded-md p-10 w-3/4 h-96">
+            <div className="bg-white border-2 relative border-black show rounded-md p-10 w-3/4 h-96">
             <button className=' top-0 right-1 absolute overflow-visible hover:shadow-md hover:shadow-slate-950 hover:bg-white text-2xl' onClick={()=>navigate('/try')}>X</button>
             <input className="text-2xl w-48 h-12" id="title" placeholder="title..." defaultValue={location.state.title}/>
             <br/><br/>
