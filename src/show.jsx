@@ -78,9 +78,9 @@ function Showing(){
           <div className="bg-white border-2 relative show overflow-scroll border-black rounded-md p-10">
             
             <button className=' top-1 right-1 absolute overflow-visible bg-white border-2 border-black hover:shadow-md hover:shadow-slate-950 hover:bg-slate-500 text-base' onClick={()=>sure(location.state.title)}>delete</button>
-            <div className="text-3xl w-fit h-fit whitespace-pre" id="title" contentEditable="true">{location.state.title}</div>
+            <div className="text-sm md:text-base lg:text-lg w-fit h-fit whitespace-pre" id="title" contentEditable="true">{location.state.title}</div>
             <br/><br/>
-            <div className="text-4xl w-fit h-fit whitespace-pre inline-block" id="text" contentEditable="true">{location.state.data}</div>
+            <div className="text-base md:text-lg lg:text-xl  w-fit h-fit whitespace-pre inline-block" id="text" contentEditable="true">{location.state.data}</div>
             <button className='w-10 h-8 bg-white absolute hover:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black right-1 bottom-1' onClick={()=>Editnote()}>edit</button>
           
           </div>

@@ -35,9 +35,9 @@ function terminal(mess){
             <div id="terminal" className="absolute top-5 text-base p-2 rounded-lg hidden bg-white"></div>
             <div className="bg-white border-2 relative border-black show overflow-scroll rounded-md p-10 w-3/4 h-96">
             <button className=' top-0 right-1 absolute overflow-visible hover:shadow-md hover:shadow-slate-950 hover:bg-white text-2xl' onClick={()=>navigate('/try')}>X</button>
-            <input className="text-2xl w-48 h-12" id="title" placeholder="title..." defaultValue={location.state.title}/>
+            <input className="text-sm md:text-base lg:text-lg w-48 h-12" id="title" placeholder="title..." defaultValue={location.state.title}/>
             <br/><br/>
-            <textarea className="text-2xl lg:text-4xl box h-52 resize-none whitespace-pre" id="text" placeholder="type anything..." defaultValue={location.state.data}/>
+            <textarea className="text-base md:text-lg lg:text-xl box h-52 resize-none whitespace-pre" id="text" placeholder="type anything..." defaultValue={location.state.data}/>
             <button className='w-10 h-8 bg-white absolute hover:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black right-1 bottom-1' onClick={()=>Addnote()}>Add</button>
             </div>
             
