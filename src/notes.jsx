@@ -6,6 +6,7 @@ import axios from 'axios';
 import Showing from './show';
 import Circle from './circle.jsx'
 
+
 function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
@@ -100,7 +101,7 @@ function Notes(){
 
               <div className='flex flex-row relative'>
 
-                <button className='w-8 lg:w-10 h-6 lg:h-8 bg-slate-300 absolute bottom-0 right-0 hover:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black text-sm lg:text-base' onClick={                                                                                                                                                                                                            ()=>navigate('/adding', {state:{title:document.getElementById("title").value,data:document.getElementById("text").value}})}>👀</button>
+                <button className='w-8 lg:w-10 h-6 lg:h-8 bg-slate-300 absolute bottom-0 right-0 active:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black text-sm lg:text-base' onClick={()=>navigate('/adding', {state:{title:document.getElementById("title").value,data:document.getElementById("text").value}})}>👀</button>
                 <p className='text-base md:text-lg lg:text-2xl text-white'>Add a note</p>
 
               </div>
@@ -112,7 +113,7 @@ function Notes(){
                 <div className='flex flex-row relative mx-1 my-1'>
 
                   <div className='bg-white w-28 lg:w-32 h-6 lg:h-7  rounded-xl overflow-hidden text-xs lg:text-sm text-center' id='terminal'></div>
-                  <button className='w-8 lg:w-10 h-6 lg:h-8 bg-white absolute bottom-0 right-0 hover:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black text-sm lg:text-base' onClick={()=>Addnote()}>add</button>
+                  <button className='w-8 lg:w-10 h-6 lg:h-8 bg-white absolute bottom-0 right-0 active:bg-slate-500 hover:shadow-md hover:shadow-slate-950 rounded-md border-2 border-black text-sm lg:text-base' onClick={()=>Addnote()}>add</button>
             
                 </div>
 
@@ -128,11 +129,11 @@ function Notes(){
 
           </div>
             
-            <div><button className='w-fit h-fit bg-white rounded-lg border-2 border-black mx-2 hover:bg-slate-500' onClick={()=>show()}>refresh my notes</button></div>
+            <div><button className='w-fit h-fit bg-white rounded-lg border-2 border-black mx-2 active:bg-slate-500' onClick={()=>show()}>refresh my notes</button></div>
             <div className='flex flex-row flex-wrap'>
            {z.map(function(item ,index){
             return(
-                <div className="flex flex-col relative w-40 h-24 md:w-52 md:h-32 lg:w-60 lg:h-36 overflow-hidden bg-slate-600 hover:bg-slate-400 hover:cursor-pointer  text-white border-4 rounded-lg border-black items-start mx-2 my-2" key={index}  >
+                <div className="flex flex-col relative w-40 h-24 md:w-52 md:h-32 lg:w-60 lg:h-36 overflow-hidden bg-slate-600 active:bg-slate-400 hover:cursor-pointer  text-white border-4 rounded-lg border-black items-start mx-2 my-2" key={index}  >
                 <div onClick={()=>passing(item)}>
                 <div className="text-sm md:text-base lg:text-lg font-semibold mx-2 whitespace-pre">{item.title}</div>
                 <div className='text-base md:text-lg lg:text-xl mx-2 whitespace-pre'>{item.data}</div>
