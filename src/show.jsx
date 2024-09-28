@@ -75,7 +75,7 @@ function Showing(){
           
           </div>
 
-          <div className="bg-white border-2 relative show border-black rounded-md p-10">
+          <div className="bg-white border-2 relative show overflow-scroll border-black rounded-md p-10">
             
             <button className=' top-1 right-1 absolute overflow-visible bg-white border-2 border-black hover:shadow-md hover:shadow-slate-950 hover:bg-slate-500 text-base' onClick={()=>sure(location.state.title)}>delete</button>
             <div className="text-3xl w-fit h-fit whitespace-pre" id="title" contentEditable="true">{location.state.title}</div>
