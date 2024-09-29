@@ -15,7 +15,7 @@ function Profile(){
        }
       
     async function getuser(){ 
-        await axios.post("https://note-back-mode2-teri.vercel.app/notes/user", { id:localStorage.getItem("id") }).then(function(res){ setuser(res.data)}) 
+        await axios.post("https://note-back-mode2-teri.vercel.app/notes/user", {  key:localStorage.getItem("key") }).then(function(res){ setuser(res.data)}) 
         }
     
 

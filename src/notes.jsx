@@ -27,7 +27,7 @@ function Notes(){
             await axios.post('https://note-back-mode2-teri.vercel.app/notes/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value,
-              id:localStorage.getItem("id")
+              key:localStorage.getItem("key")
             })
             .then(function (response) {
              //console.log(response.data)
@@ -40,7 +40,7 @@ function Notes(){
             }).finally(()=>show())
     }
     async function show(){ 
-        await axios.post("https://note-back-mode2-teri.vercel.app/notes/show",{id:localStorage.getItem("id") }).then(function(res){ setz(res.data) ,
+        await axios.post("https://note-back-mode2-teri.vercel.app/notes/show",{ key:localStorage.getItem("key") }).then(function(res){ setz(res.data) ,
           console.log(localStorage.getItem("id"))
           document.getElementById("user").textContent=res.data[0].owner}).catch(function (error) {
           console.log(error)
@@ -61,7 +61,7 @@ function Notes(){
    function deleteNote(){
         axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
             title:del ,
-            id:localStorage.getItem("id")
+            key:localStorage.getItem("key")
           })
           .then(function (response) {
            //console.log(response.data)

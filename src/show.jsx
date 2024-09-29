@@ -18,7 +18,7 @@ function Showing(){
           title:location.state.title,
           Ntitle:document.getElementById("title").textContent,
           data:document.getElementById("text").textContent,
-          id:localStorage.getItem("id")
+          key:localStorage.getItem("key")
         })
         .then(function (response) {
          console.log(response.data)
@@ -38,7 +38,7 @@ function Showing(){
     function deleteNote(){
         axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
             title:del ,
-            id:localStorage.getItem("id")
+            key:localStorage.getItem("key")
           })
           .then(function (response) {
           

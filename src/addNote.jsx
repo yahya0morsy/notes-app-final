@@ -13,7 +13,7 @@ function Adddata(){
     await axios.post('https://note-back-mode2-teri.vercel.app/notes/save', {
       title:document.getElementById("title").value,
       data:document.getElementById("text").value,
-      id:localStorage.getItem("id")
+      key:localStorage.getItem("key")
     })
     .then(function (response) {
     // console.log(response.data)
