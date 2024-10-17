@@ -58,7 +58,7 @@ function Notes(){
           document.getElementById("user").textContent=res.data[0].owner}).catch(function (error) {
           console.log(error)
           terminal(error.response.data)
-          
+          document.getElementById("loading").style.display = "none"
         })
     
 

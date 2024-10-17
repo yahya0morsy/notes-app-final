@@ -1,4 +1,6 @@
 import axios from 'axios';
+import anime from 'animejs/lib/anime.es.js';
+var path = anime.path('.motion-path-demo path');
 function Passreset(){
     const currentpass = document.getElementById("pass0")
     const newpass1 = document.getElementById("pass1")
@@ -12,11 +14,21 @@ function Passreset(){
     }
     
    async function changepassword(){
+    document.getElementById("loading").style.display = "block"
+    anime({
+      targets: '.loading',
+      translateX: [-100, 100],
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine'
+    });
     if(newpass1.value.length <6){
         terminal("password should be more than 5 characters");
+        document.getElementById("loading").style.display = "none"
       }
     else if(newpass1.value!==newpass2.value){
            terminal("passwords did not match")
+           document.getElementById("loading").style.display = "none"
         }
     else{
             
@@ -28,9 +40,11 @@ function Passreset(){
               .then(function (response) {
                console.log(response.data)
                terminal(response.data)
+               document.getElementById("loading").style.display = "none"
               })
               .catch(function (error) {
                 console.log(error)
+                document.getElementById("loading").style.display = "none"
               })
         }
      
