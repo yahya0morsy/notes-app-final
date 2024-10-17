@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Showing from './show';
 import Circle from './circle.jsx'
-
-
+import anime from 'animejs/lib/anime.es.js';
+var path = anime.path('.motion-path-demo path');
 function Notes(){
     const [z ,setz] =useState([])
     const [del ,setd] =useState()
     let navigate = useNavigate();
+   
+      
     function passing(thing){
       navigate('/display', {state:{title:thing.title,data:thing.data}})
     }
@@ -21,6 +23,8 @@ function Notes(){
       // Example Code
   }, [] )
    }
+    
+  
 
     
      async function Addnote(){
@@ -40,11 +44,21 @@ function Notes(){
             }).finally(()=>show())
     }
     async function show(){ 
+      document.getElementById("loading").style.display = "block"
+      anime({
+        targets: '.loading',
+        translateX: [0, 200],
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+      });
         await axios.post("https://note-back-mode2-teri.vercel.app/notes/show",{ key:localStorage.getItem("key") }).then(function(res){ setz(res.data) ,
           console.log(localStorage.getItem("id"))
+          document.getElementById("loading").style.display = "none"
           document.getElementById("user").textContent=res.data[0].owner}).catch(function (error) {
           console.log(error)
           terminal(error.response.data)
+          
         })
     
 
@@ -94,7 +108,7 @@ function Notes(){
 
            
           <div className='text-base absolute top-2 right-5 place-items-center flex flex-col z-10 text-white' ><p className='' id='user'> </p><Circle/></div>
-           
+          
           <div className='flex flex-row relative justify-start place-items-end'>
 
             <div className='mx-2 my-5 flex flex-col'>
@@ -129,7 +143,10 @@ function Notes(){
 
           </div>
             
-            <div><button className='w-fit h-fit bg-white rounded-lg border-2 border-black mx-2 active:bg-slate-500' onClick={()=>show()}>refresh my notes</button></div>
+            <div className='flex flex-row place-items-center'><button className='w-fit h-fit bg-white rounded-lg border-2 border-black mx-2 active:bg-slate-500' onClick={()=>show()}>refresh my notes</button>
+            <div className='flex flex-col mx-2 loading' id='loading'><div className=' w-5 h-5 rounded-3xl bg-red-700'></div></div>
+            </div>
+            
             <div className='flex flex-row flex-wrap'>
            {z.map(function(item ,index){
             return(
