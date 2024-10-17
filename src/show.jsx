@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import anime from 'animejs/lib/anime.es.js';
+var path = anime.path('.motion-path-demo path');
 function Showing(){
      let navigate = useNavigate();
      
@@ -13,7 +15,19 @@ function Showing(){
         document.getElementById("terminal").style.display = 'block'
          document.getElementById("terminal").textContent = mess
     }
+    function loader(){
+      document.getElementById("loading").style.display = "block"
+      anime({
+        targets: '.loading',
+        translateX: [-100, 100],
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+      });
+    }
+  
     async function Editnote(){
+      loader()
         await axios.patch('https://note-back-mode2-teri.vercel.app/notes/edit', {
           title:location.state.title,
           Ntitle:document.getElementById("title").textContent,
@@ -23,9 +37,11 @@ function Showing(){
         .then(function (response) {
          console.log(response.data)
          terminal(response.data)
+         document.getElementById("loading").style.display = "none"
         })
         .catch(function (error) {
           console.log(error)
+          document.getElementById("loading").style.display = "none"
         })
     }
     function sure(x){
@@ -36,6 +52,7 @@ function Showing(){
         setd(x)
     }
     function deleteNote(){
+      loader()
         axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
             title:del ,
             key:localStorage.getItem("key")
@@ -43,9 +60,11 @@ function Showing(){
           .then(function (response) {
           
            terminal(response.data)
+           document.getElementById("loading").style.display = "none"
           })
           .catch(function (error) {
             console.log(error)
+            document.getElementById("loading").style.display = "none"
           }).finally(()=>navigate('/try', { replace: true }))
           document.getElementById("sure").textContent = ""
           document.getElementById("yes").textContent = "" 
@@ -63,7 +82,7 @@ function Showing(){
 
     return(
         <div className="min-h-screen min-w-screen relative bg-slate-800 flex flex-col justify-center place-items-center">
-
+          <div className='flex flex-col mx-2 loading place-self-center my-2 hidden' id='loading'><div className=' w-5 h-5 rounded-3xl bg-red-700'></div></div>
           <div id="terminal" className="absolute top-5 text-base p-2 rounded-lg hidden bg-white"></div>
           <button className="text-3xl absolute top-2 left-4 hover:shadow-md hover:shadow-white hover:-translate-x-2" onClick={()=>navigate('/try')}>⬅️</button>
           <div className='my-5 hidden z-10 absolute top-5 bg-slate-500 p-2 rounded-md' id="ask">

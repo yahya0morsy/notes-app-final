@@ -3,6 +3,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import { Outlet, Link, Navigate,redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 import Showing from './show';
 import Circle from './circle.jsx'
 import anime from 'animejs/lib/anime.es.js';
@@ -23,11 +24,21 @@ function Notes(){
       // Example Code
   }, [] )
    }
-    
+    function loader(){
+      document.getElementById("loading").style.display = "block"
+      anime({
+        targets: '.loading',
+        translateX: [0, 200],
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+      });
+    }
   
 
     
      async function Addnote(){
+            loader()
             await axios.post('https://note-back-mode2-teri.vercel.app/notes/save', {
               title:document.getElementById("title").value,
               data:document.getElementById("text").value,
@@ -36,11 +47,12 @@ function Notes(){
             .then(function (response) {
              //console.log(response.data)
              terminal(response.data)
-              
+            document.getElementById("loading").style.display = "none"
             })
             .catch(function (error) {
              // console.log(error),
               terminal(error.response.data)
+              document.getElementById("loading").style.display = "none"
             }).finally(()=>show())
     }
     async function show(){ 
@@ -73,6 +85,7 @@ function Notes(){
 
     }
    function deleteNote(){
+    loader()
         axios.post('https://note-back-mode2-teri.vercel.app/notes/delete',{
             title:del ,
             key:localStorage.getItem("key")
@@ -80,9 +93,11 @@ function Notes(){
           .then(function (response) {
            //console.log(response.data)
            terminal(response.data)
+           document.getElementById("loading").style.display = "none"
           })
           .catch(function (error) {
             console.log(error)
+            document.getElementById("loading").style.display = "none"
           }).finally(()=>show())
           document.getElementById("sure").textContent = ""
           document.getElementById("yes").textContent = "" 
